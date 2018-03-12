@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Items in stock</h3>
+
+    <div class="list-group">
+    {% for item in items %}
+        <a href="{% url 'item_detail' item.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ item.title|capfirst }}</h5>
+              <small>Avaliable: {{ item.amount }} unit(s)</small>
+            </div>
+            <p class="mb-1">{{ item.description }}</p>
+        </a>
+    {% endfor %}
+    </div>
+
+{% endblock %}
